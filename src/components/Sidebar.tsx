@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { X, Plus, RotateCcw } from 'lucide-react';
+import { X, Plus, RotateCcw, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ModelSelector from './ModelSelector';
+import { Link } from 'react-router-dom';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -57,14 +58,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggle }) => {
       </div>
       
       <div className="p-4 border-t border-white/10">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-futuristic-purple/20 flex items-center justify-center">
-            <span className="text-sm font-medium">UN</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-8 w-8 rounded-full bg-futuristic-purple/20 flex items-center justify-center">
+              <span className="text-sm font-medium">UN</span>
+            </div>
+            <div className="text-sm">
+              <p className="font-medium">User</p>
+              <p className="text-white/60 text-xs">Free Plan</p>
+            </div>
           </div>
-          <div className="text-sm">
-            <p className="font-medium">User</p>
-            <p className="text-white/60 text-xs">Free Plan</p>
-          </div>
+          <Link to="/settings">
+            <Button variant="ghost" size="icon" className="h-8 w-8">
+              <Settings className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
